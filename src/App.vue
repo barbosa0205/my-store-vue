@@ -1,8 +1,6 @@
 <template lang="">
   <div>
-    <h1 class="text-3xl font-mono text-rose-500">
-      HOME PAGE
-    </h1>
+    <router-view></router-view>
   </div>
 </template>
 <script setup>  
