@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="w-screen">
+    <div class="w-full">
         <form action="" class="w-full max-w-sm p-10 flex flex-col mx-auto mt-20">
             <h1>SIGN IN</h1>
             <input type="text" placeholder="Username" class="p-4 bg-zinc-100 my-2">
