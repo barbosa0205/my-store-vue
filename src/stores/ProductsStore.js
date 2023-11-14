@@ -13,8 +13,6 @@ export const useProductsStore = defineStore('products', () => {
           const resp = await axios.get('https://dummyjson.com/products/categories')
 
             categories.value = resp.data
-
-            router.push('/')
             
         } catch (error) {
             console.log(error)
