@@ -12,27 +12,24 @@
                         <i @click="toggleSideMenu" class="ri-close-line text-2xl text-zinc-100 cursor-pointer"></i>
                     </span>
                 </div>
+                <!-- Guest Links -->
+                <router-link v-if="!user" to="/login" class="underline text-lg text-center md:mx-2 border-zinc-300 text-zinc-700">Sign In</router-link> 
                 <!-- Auth Link -->
-                <ul v-if="user" class="flex flex-col md:flex-row">
-                    <i class="ri-user-4-line text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"></i>
-                    <i class="ri-shopping-cart-line text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"></i>
+                <ul v-if="user" class="flex flex-col md:flex-row w-full justify-end">
+                    <i class="ri-shopping-cart-line text-2xl text-zinc-700 w-full text-center md:w-fit md:mx-2 cursor-pointer p-2 border-y border-zinc-200"></i>
+                    <i class="ri-user-4-line text-2xl text-zinc-700 w-full text-center md:w-fit md:mx-2 cursor-pointer p-2 border-b border-zinc-200"></i>
                 </ul>
                 <div class="md:absolute w-full top-11 left-0">
 
-                <ul class="flex flex-col md:flex-row w-full py-4">
-                    <router-link to="/categories" class="underline text-lg text-zinc-700 w-full text-center border-b border-t md:border-none md:mx-2 border-zinc-300 py-2 ">Categories</router-link>
+                <ul class="flex flex-col md:flex-row w-full">
+                    <router-link @click="toggleSideMenu" to="/categories" class="underline text-lg text-zinc-700 w-full text-center border-b md:border-none md:mx-2 border-zinc-200 py-2 ">Categories</router-link>
                 </ul>
                 </div>
             </div>
-                   
 
-            <div v-if="!user" class="flex items-center">
-
-               <!-- Guest Link -->
-               <router-link to="/login" class="underline text-lg text-center md:mx-2 border-zinc-300 py-2 text-zinc-700">Sign In</router-link> 
-
-            </div>
-            <i @click="toggleSideMenu" class="ri-menu-line text-2xl ml-4 md:hidden cursor-pointer text-zinc-50 text-transparent bg-clip-text bg-gradient-to-r font-bold from-rose-400 to-pink-400"></i>
+         <!-- Hamburguer Menu -->
+         <i @click="toggleSideMenu" class="ri-menu-line text-2xl ml-6 md:hidden cursor-pointer text-zinc-700 font-bold"></i>
+   
 
             </div>
         </section>

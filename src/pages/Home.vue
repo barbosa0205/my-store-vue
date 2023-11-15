@@ -8,18 +8,27 @@
             <img :src="photo" alt="">
         </SwiperSlide>
     </Swiper>
+    <section>
+        <h3 class="p-4 text-4xl mt-16 mb-5 font-extrabold"> Explore Our Catalog</h3>
+        <ul class="p-2 w-full flex flex-col items-center bg-zinc-100">
+            <product-card v-for="(product, index) in products" :key="index" :data="product"/>
+            
+        </ul>
+    </section>
 </template>
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useUserStore } from '../stores/UserStore';
 import { useProductsStore } from '../stores/ProductsStore';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Swiper, SwiperSlide} from 'swiper/vue'
 import 'swiper/css';
 import { Pagination} from 'swiper/modules'
 import 'swiper/css/pagination';
-
 import "swiper/css"
+import ProductCard from '../components/ProductCard.vue';
+import axios from 'axios';
+
     const userStore = useUserStore()
     const {user} = storeToRefs(userStore)
 
@@ -28,14 +37,27 @@ import "swiper/css"
     const {categories} = storeToRefs(productsStore)
 
     const photosCarrousel = [
-        "https://fakeimg.pl/1080x720/232323/ffffff/?text=Ecommerce&font=noto",
-        "https://fakeimg.pl/1080x720/de3163/ffffff/?text=By&font=noto",
-        "https://fakeimg.pl/1080x720/232323/ffffff/?text=barboasdev&font=noto",   
-        "https://fakeimg.pl/1080x720/de3163/ffffff/?text=with 🖤&font=noto",
+        "https://fakeimg.pl/800x400/232323/ffffff/?text=Ecommerce&font=noto",
+        "https://fakeimg.pl/800x400/de3163/ffffff/?text=By&font=noto",
+        "https://fakeimg.pl/800x400/232323/ffffff/?text=barboasdev&font=noto",   
+        "https://fakeimg.pl/800x400/de3163/ffffff/?text=with 🖤&font=noto",
 
     ]
+
+    const products = ref(null)
+    
+    const getProducts = async () => {
+        try {
+           const resp = await axios.get('https://dummyjson.com/products') 
+           products.value = resp.data.products
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     onMounted(() => {
         getCategories()
+        getProducts()
     })
 </script>
 <style lang="css">
