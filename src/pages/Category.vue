@@ -1,5 +1,5 @@
 <template lang="">
-    <h1 class="text-2xl my-4 px-4 text-rose-400 font-bold"><span class="text-zinc-500">category:</span> {{category}}</h1>
+    <h1 class="text-2xl my-4 px-4 text-rose-400 font-bold md:mt-10"><span class="text-zinc-500">category:</span> {{category}}</h1>
    <ul class="w-full flex flex-wrap justify-center" v-if="productsOfCategory">
     <product-card v-for="(product, index) in productsOfCategory.products" :key="index" :data="product"/>
    </ul>
