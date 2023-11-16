@@ -65,4 +65,10 @@ import axios from 'axios';
     margin-top: 50px;
     max-width: 1000px;
 }
+
+@media (min-width: 480px) {
+    .swiper-slide > img  {
+        max-height: 500px;
+    }
+}
 </style>

@@ -2,13 +2,11 @@
     <div class="w-full">
        
         <section class="p-4 pb-0">
-            <h2 class="text-center p-2 font-mono font-bold">Credentials</h2>
-            <code
-            class="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6">
+            <h2 class="text-center p-2 pb-0 sm:mt-4 font-mono font-bold">Credentials</h2>
+            <div class="w-full flex items-center justify-center">
+                <code
+            class="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6 max-w-xs">
             <span class="flex gap-4">
-                <span class="shrink-0 text-gray-500">
-                    $
-                </span>
         
                 <span class="flex-1 text-pink-300">
                     <span>
@@ -29,24 +27,40 @@
                 </path>
             </svg>
         </code>
+            </div>
         </section>
 
         <form action="" class="w-full max-w-sm p-10 pt-0 flex flex-col mx-auto mt-20">
+            
+            <!-- errors -->
+            <div v-if="loginErrors.length" class="bg-rose-100 rounded-md w-fit px-4 py-2 mb-6">
+                <p class="text-rose-600 font-bold" v-for="error in loginErrors">{{error.field}} : <span class="text-zinc-800 font-normal">{{error.message}}</span></p>
+            </div>
             <h1>SIGN IN</h1>
-            <input type="text" placeholder="Username" class="p-4 bg-zinc-100 my-2">
-            <input type="password" placeholder="Password" class="p-4 bg-zinc-100 my-2">
+            <input v-model="credentials.username" type="text" placeholder="Username" class="p-4 bg-zinc-100 my-2">
+            <input v-model="credentials.password" type="password" placeholder="Password" class="p-4 bg-zinc-100 my-2">
             <div class="w-full flex items-center justify-center my-4 p-2">
-                <button @click.prevent="authUser" class="py-2 w-full max-w-[200px] bg-zinc-400 rounded-sm text-zinc-50 hover:bg-zinc-500">Enter</button>
+                <button @click.prevent="authUser(credentials)" class="py-2 w-full max-w-[200px] bg-zinc-400 rounded-sm text-zinc-50 hover:bg-zinc-500">Enter</button>
             </div>
         </form>
     </div>
 </template>
 <script setup>
-    import {useUserStore} from '../stores/UserStore'
+    import { ref } from 'vue';
+import {useUserStore} from '../stores/UserStore'
+import { storeToRefs } from 'pinia';
 
     const userStore = useUserStore()
 
     const {authUser} = userStore
+
+    const {loginErrors} = storeToRefs(userStore)
+
+    const credentials = ref({
+        username: '',
+        password: ''
+    })
+
 </script>
 <style lang="">
     

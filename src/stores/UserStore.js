@@ -5,9 +5,36 @@ import { ref } from "vue";
 export const useUserStore = defineStore('user', () => {
 const router = useRouter()
     const user = ref(null)
-
-    const authUser = async (username, password) => {
+    const loginErrors = ref([])
+    const authUser = async (credentials) => {
         try {
+            const {username, password} = credentials
+
+            if(!username.trim()) {
+                loginErrors.value = [{
+                    'field' : 'username',
+                    'message': 'username empty field'
+                }]
+                return
+            }
+
+            if(!password.trim()) {
+                loginErrors.value = [{
+                    'field' : 'password',
+                    'message': 'password empty field'
+                }]
+                return
+            }
+
+            if(username.trim() !== 'kminchelle' || password.trim() !== '0lelplR') {
+                loginErrors.value = [{
+                    'field' : 'error',
+                    'message': 'Incorret username or password'
+                }]
+
+                return
+            }
+
           const resp = await axios.post('https://dummyjson.com/auth/login', {
                 'username' : 'kminchelle',
                 'password' : '0lelplR'
@@ -22,5 +49,5 @@ const router = useRouter()
         }
     }
 
-return {user,authUser}
+return {user,authUser,loginErrors}
 })
