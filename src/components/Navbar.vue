@@ -13,7 +13,7 @@
                     </span>
                 </div>
                 <!-- Guest Links -->
-                <router-link v-if="!user" to="/login" class="underline text-lg text-center md:mx-2 border-zinc-300 text-zinc-700">Sign In</router-link> 
+                <router-link @click="closeSideMenu" v-if="!user" to="/login" class="underline text-lg text-center md:mx-2 border-zinc-300 text-zinc-700">Sign In</router-link> 
                 <!-- Auth Link -->
                 <ul v-if="user" class="flex flex-col md:flex-row w-full justify-end">
                     <i class="ri-shopping-cart-line text-2xl text-zinc-700 w-full text-center md:w-fit md:mx-2 cursor-pointer p-2 border-y border-zinc-200"></i>
@@ -50,6 +50,10 @@ const sideMenu = ref(false)
 
 const toggleSideMenu = () => {
     sideMenu.value = !sideMenu.value
+}
+
+const closeSideMenu = () => {
+    sideMenu.value = false
 }
 
 const toggleSideMenuComputed = computed(() =>{

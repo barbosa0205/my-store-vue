@@ -5,6 +5,7 @@ const routes = [
     { path: '/login', component: () => import("../pages/Login.vue")},
     { path: '/categories', component: () => import("../pages/Categories.vue")},
     { path: '/categories/:category', component: () => import("../pages/Category.vue")},
+    {path: '/products/:productId', component: () => import("../pages/products/Product.vue")}
 
 
   ]
@@ -13,6 +14,9 @@ const routes = [
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history:createWebHistory(),
     routes, // short for `routes: routes`
+    scrollBehavior (to, from, savedPosition) {
+      return { top:0 } 
+    }
   })
 
   
