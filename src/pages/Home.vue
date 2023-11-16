@@ -1,5 +1,6 @@
 <template lang="">
-    <Swiper 
+    <div class="md:pt-5">
+        <Swiper 
         :modules="[Pagination]"
         :pagination="{ clickable: true }"
         :scrollbar="{ draggable: true }"
@@ -8,6 +9,7 @@
             <img :src="photo" alt="">
         </SwiperSlide>
     </Swiper>
+    </div>
     <section>
         <h3 class="p-4 text-4xl mt-16 mb-5 font-extrabold"> Explore Our Catalog</h3>
         <ul class="p-2 w-full flex flex-wrap items-center justify-center bg-zinc-100">

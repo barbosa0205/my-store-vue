@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="w-full">
+    <div class="w-full md:pt-10">
        
         <section class="p-4 pb-0">
             <h2 class="text-center p-2 pb-0 sm:mt-4 font-mono font-bold">Credentials</h2>

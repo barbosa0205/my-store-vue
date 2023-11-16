@@ -13,16 +13,16 @@
                     </span>
                 </div>
                 <!-- Guest Links -->
-                <router-link @click="closeSideMenu" v-if="!user" to="/login" class="underline text-lg text-center md:mx-2 border-zinc-300 text-zinc-700">Sign In</router-link> 
+                <router-link @click="closeSideMenu" v-if="!user" to="/login" class="underline md:no-underline md:hover:underline text-lg text-center md:mx-2 border-zinc-300 text-zinc-700">Sign In</router-link> 
                 <!-- Auth Link -->
                 <ul v-if="user" class="flex flex-col md:flex-row w-full justify-end">
                     <i class="ri-shopping-cart-line text-2xl text-zinc-700 w-full text-center md:w-fit md:mx-2 cursor-pointer p-2 border-y border-zinc-200"></i>
                     <i class="ri-user-4-line text-2xl text-zinc-700 w-full text-center md:w-fit md:mx-2 cursor-pointer p-2 border-b border-zinc-200"></i>
                 </ul>
-                <div class="md:absolute w-full top-11 left-0">
 
-                <ul class="flex flex-col md:flex-row w-full">
-                    <router-link @click="toggleSideMenu" to="/categories" class="underline text-lg text-zinc-700 w-full text-center border-b md:border-none md:mx-2 border-zinc-200 py-2 ">Categories</router-link>
+                <div class="md:absolute w-full md:top-[70px] md:left-0 md:border-b">
+                <ul class="flex flex-col md:flex-row md:justify-center w-full">
+                    <router-link @click="toggleSideMenu" to="/categories" class="underline md:no-underline md:hover:underline text-lg text-zinc-700 w-full md:w-fit text-center border-b md:border-none md:mx-2 border-zinc-200 pt-2">Categories</router-link>
                 </ul>
                 </div>
             </div>

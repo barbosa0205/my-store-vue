@@ -1,7 +1,7 @@
 <template lang="">
-    <div class="w-full h-screen max-w-6xl mx-auto bg-zinc-50">
+    <div class="w-full min-h-screen h-full max-w-6xl mx-auto bg-zinc-50">
         <navbar/>
-    <main class="min-h-full w-ful">
+    <main class="min-h-full w-full">
         <slot></slot>
     </main>
     <footer class="h-fit bg-zinc-800 text-zinc-50">

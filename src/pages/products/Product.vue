@@ -13,11 +13,11 @@
         </Swiper>
 
         <div class="w-full flex flex-col items-end pr-6 mt-4">
-            <div class="flex pt-2 pl-2">
-                <p class="text-lg text-emerald-600 mr-3">- ${{saveDiscount}}</p>
-             <p class="text-blue-600 text-lg">{{product.discountPercentage}}% <small>Dto</small></p>            
+            <div class="flex pt-2 s:pt-6 pl-2">
+                <p class="text-lg s:text-xl text-emerald-600 mr-3">- ${{saveDiscount}}</p>
+             <p class="text-blue-600 text-lg s:text-xl">{{product.discountPercentage}}% <small>Dto</small></p>            
             </div>
-            <p class="text-4xl mr-4">${{product.price}}  USD
+            <p class="text-4xl mr-4 s:text-5xl">${{product.price}}  USD
             </p>
          </div>
 
@@ -28,13 +28,15 @@
          </div>
 
          <!-- buttons show details, cart -->
-         <div class="w-full flex items-center justify-around flex-wrap p-4">
+         <div class="w-full flex items-center justify-center p-4">
            
             
-             <button @click.stop="console.log('add to cart')" class="w-full mx-1 py-3 text-2xl font-bold  text-amber-600 rounded-md bg-amber-300"><i class="ri-shopping-cart-fill"></i></button>
+             <button @click.stop="console.log('add to cart')" class="w-full max-w-xs mx-1 py-3 text-2xl font-bold  text-amber-600 rounded-md bg-amber-300"><i class="ri-shopping-cart-fill"></i></button>
          </div>
 
-         <p class="p-4">{{product.description}}</p>
+         <div class="px-4 py-10 mb-10 mt-5 bg-zinc-100">
+            <p class="">{{product.description}}</p>
+         </div>
 </section>
 </template>
 <script setup>
